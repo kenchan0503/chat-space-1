@@ -12,9 +12,16 @@
 | column | type   |
 |:-------|:-------|
 |nickname|string  |
-*gem(devise)を使用予定*
+
+*※ログイン情報についてはgem(devise)を使用*
 
 ### group table
 | column | type   |
 |:-------|:-------|
 |name    |string  |
+
+### users_group table
+| column | type   |
+|:-------|:-------|
+|user_id |integer |
+|group_id|integer |
