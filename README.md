@@ -20,7 +20,7 @@
 |:-------|:-------|
 |name    |string  |
 
-### users_group table
+### users_groups table
 | column | type   |
 |:-------|:-------|
 |user_id |integer |
