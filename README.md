@@ -26,10 +26,10 @@
 |user_id |integer |◯       |        |◯       |◯       |
 |group_id|integer |◯       |        |◯       |◯       |
 
-##アソシエーション
-message belongs_to user
-message belongs_to group
-user has_many messages
-user has_many groups
-group has_many messages
-group has_many users
+###アソシエーション
+- message belongs_to user
+- message belongs_to group
+- user has_many messages
+- user has_many groups
+- group has_many messages
+- group has_many users
