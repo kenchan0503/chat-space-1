@@ -9,8 +9,8 @@
 |user_id |integer |◯       |◯       |◯       |◯       |
 
 
-- belongs_to :user
-- belongs_to :group
+- belongs_to user
+- belongs_to group
 
 ### users table
 | column | type   |not null|index|foreign key|unique|
