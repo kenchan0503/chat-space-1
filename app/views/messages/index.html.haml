@@ -1,0 +1,53 @@
+%p.notice チャットグループが作成されました。
+.wrapper
+  .left-content
+    .left-content-top
+      %p.left-content-top__your-name shinichi shimizu
+      .left-content-top__actions
+        =link_to "#",class: "left-content-top__action" do
+          = fa_icon "pencil-square-o"
+        =link_to "#",class: "left-content-top__action" do
+          = fa_icon "cog"
+
+    .left-content-bottom
+      %ul.conversation
+        %li.conversation__group-name グループ1
+        %li.conversation__newest-message お腹すいた
+        %li.conversation__group-name aaaaaaaaaaaaa
+        %li.conversation__newest-message まだメッセージはありません
+        %li.conversation__group-name sampleグループ
+        %li.conversation__newest-message まだメッセージはありません
+
+  .right-content.clearfix
+
+    .right-content__top.clearfix
+      %p.group-name.clearfix sampleグループ
+      .right-content__edit
+        %p.edit-button Edit
+      %p.group-members.clearfix Members: ryosukemaehira satoh suzuki tanaka shimizu
+
+
+
+    .right-content__middle
+      %ul.message
+        %li.message__contents.clearfix
+          %p.message__contents__sender ryosukemaehira
+          %p.message__contents__time 2016/10/02 06:27:07
+          %p.message__contents__content なるほど
+        %li.message__contents.clearfix
+          %p.message__contents__sender ダミー
+          %p.message__contents__time 2016/10/02 06:27:14
+          %p.message__contents__content あああああああああああ
+        %li.message__contents.clearfix
+          %p.message__contents__sender ryosukemaehira
+          %p.message__contents__time 2016/10/02 06:27:25
+          %p.message__contents__content コマンド+エンターで送信したい感ある
+        %li.message__contents.clearfix
+          %p.message__contents__sender ryosukemaehira
+          %p.message__contents__time 2016/10/02 06:27:30
+          %p.message__contents__content お腹すいた
+    .right-content__footer.clearfix
+      %form
+        %input.text{:type=>"text",:placeholder=>"type a message"}
+          %i.fa.fa-picture-o
+          %input.send{:type=>"submit",:value=>"Send"}

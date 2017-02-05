@@ -1,0 +1,62 @@
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}
+
+.left-content{
+  float: left;
+  width: 300px;
+  height: 100%;
+  background-color: #2F3E51;
+
+  .left-content-top {
+     padding: 0 20px 20px 20px;
+     height: 80px;
+     width: 260px;
+     background-color: #253141;
+     float: left;
+
+      &__your-name {
+        line-height: 100px;
+        float: left;
+        font-size: 16px;
+        font-weight: bold;
+        color: #FFFFFF;
+      }
+
+      &__actions{
+        line-height: 100px;
+        float: right;
+        color: #FFFFFF;
+        font-size: 20px;
+        }
+      &__action{
+        color: white;
+        display: inline-block;
+      }
+  }
+}
+
+.left-content-bottom {
+  float: left;
+  width: 260px;
+  height: 100%;
+  background-color: #2F3E51;
+  padding: 0 20px 0 20px;
+
+  .conversation{
+    padding-top: 20px;
+    &__group-name {
+      font-size: 15px;
+      color: #FFFFFF;
+    }
+
+    &__newest-message {
+      padding: 5px 0 40px;
+      font-size: 11px;
+      color: #FFFFFF;
+    }
+  }
+}
+
