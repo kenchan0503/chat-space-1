@@ -3,7 +3,7 @@
   .left-content
     .left-content-top
       %p.left-content-top__your-name shinichi shimizu
-      .left-content-top__actions
+      .left-content-top__actions.clearfix
         =link_to "#",class: "left-content-top__action" do
           = fa_icon "pencil-square-o"
         =link_to "#",class: "left-content-top__action" do
@@ -11,22 +11,28 @@
 
     .left-content-bottom
       %ul.conversation
-        %li.conversation__group-name グループ1
-        %li.conversation__newest-message お腹すいた
-        %li.conversation__group-name aaaaaaaaaaaaa
-        %li.conversation__newest-message まだメッセージはありません
-        %li.conversation__group-name sampleグループ
-        %li.conversation__newest-message まだメッセージはありません
+        %li.conversation__group
+          =link_to "#",class: "conversation__group__link" do
+            %p.conversation__group__name グループ1
+            %p.conversation__group__newest-message お腹すいた
+        %li.conversation__group
+          =link_to "#",class: "conversation__group__link" do
+            %p.conversation__group__name aaaaaaaaaaaaa
+            %p.conversation__group__newest-message まだメッセージはありません
+        %li.conversation__group
+          =link_to "#",class: "conversation__group__link" do
+            %p.conversation__group__name sampleグループ
+            %p.conversation__group__newest-message まだメッセージはありません
+    -# TODO:each文実装時にliは一個に訂正。
 
   .right-content.clearfix
 
     .right-content__top.clearfix
       %p.group-name.clearfix sampleグループ
       .right-content__edit
-        %p.edit-button Edit
+        =link_to "#",class: "edit-link" do
+          %p.edit-button Edit
       %p.group-members.clearfix Members: ryosukemaehira satoh suzuki tanaka shimizu
-
-
 
     .right-content__middle
       %ul.message
@@ -46,8 +52,49 @@
           %p.message__contents__sender ryosukemaehira
           %p.message__contents__time 2016/10/02 06:27:30
           %p.message__contents__content お腹すいた
+        %li.message__contents.clearfix
+          %p.message__contents__sender ryosukemaehira
+          %p.message__contents__time 2016/10/02 06:27:07
+          %p.message__contents__content なるほど
+        %li.message__contents.clearfix
+          %p.message__contents__sender ダミー
+          %p.message__contents__time 2016/10/02 06:27:14
+          %p.message__contents__content あああああああああああ
+        %li.message__contents.clearfix
+          %p.message__contents__sender ryosukemaehira
+          %p.message__contents__time 2016/10/02 06:27:25
+          %p.message__contents__content コマンド+エンターで送信したい感ある
+        %li.message__contents.clearfix
+          %p.message__contents__sender ryosukemaehira
+          %p.message__contents__time 2016/10/02 06:27:30
+          %p.message__contents__content お腹すいた
+        %li.message__contents.clearfix
+          %p.message__contents__sender ryosukemaehira
+          %p.message__contents__time 2016/10/02 06:27:07
+          %p.message__contents__content なるほど
+        %li.message__contents.clearfix
+          %p.message__contents__sender ダミー
+          %p.message__contents__time 2016/10/02 06:27:14
+          %p.message__contents__content あああああああああああ
+        %li.message__contents.clearfix
+          %p.message__contents__sender ryosukemaehira
+          %p.message__contents__time 2016/10/02 06:27:25
+          %p.message__contents__content コマンド+エンターで送信したい感ある
+        %li.message__contents.clearfix
+          %p.message__contents__sender ryosukemaehira
+          %p.message__contents__time 2016/10/02 06:27:30
+          %p.message__contents__content お腹すいた
+
     .right-content__footer.clearfix
       %form
-        %input.text{:type=>"text",:placeholder=>"type a message"}
-          %i.fa.fa-picture-o
-          %input.send{:type=>"submit",:value=>"Send"}
+        .right-content__footer__body
+          %input.text{:type=>"text",:placeholder=>"type a message"}
+            %label.right-content__footer__body__image
+              %input.set_image{:type=>"file"}
+              = fa_icon "image"
+        %input.send{:type=>"submit",:value=>"Send"}
+
+
+
+
+
