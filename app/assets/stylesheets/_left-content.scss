@@ -1,3 +1,6 @@
+$mainWhiteColor: #FFFFFF;
+// 一度しか使わない色はわかりづらくなるのでIDのままにしておきます。
+
 .left-content{
   float: left;
   width: 300px;
@@ -16,18 +19,18 @@
         float: left;
         font-size: 16px;
         font-weight: bold;
-        color: #FFFFFF;
+        color: $mainWhiteColor;
       }
 
       &__actions{
         line-height: 100px;
         float: right;
-        color: #FFFFFF;
+        color: $mainWhiteColor;
         font-size: 20px;
         }
 
       &__action{
-        color: white;
+        color: $mainWhiteColor;
         display: inline-block;
       }
   }
@@ -45,10 +48,10 @@
 
     &__group{
       padding-bottom: 40px;
-      color: #FFFFFF;
+      color: $mainWhiteColor;
 
       &__link{
-        color: #FFFFFF;
+        color: $mainWhiteColor;
         text-decoration: none;
       }
       &__name {
