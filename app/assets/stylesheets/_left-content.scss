@@ -1,17 +1,18 @@
 $mainWhiteColor: #FFFFFF;
-// 一度しか使わない色はわかりづらくなるのでIDのままにしておきます。
+$leftContentColor: #2F3E51;
+$leftContentTopColor: #253141;
 
 .left-content{
   float: left;
   width: 300px;
   height: 100%;
-  background-color: #2F3E51;
+  background-color: $leftContentColor;
 
   .left-content-top {
      padding: 0 20px 20px 20px;
      height: 80px;
      width: 260px;
-     background-color: #253141;
+     background-color: $leftContentTopColor;
      float: left;
 
       &__your-name {
@@ -40,7 +41,7 @@ $mainWhiteColor: #FFFFFF;
   float: left;
   width: 260px;
   height: calc(100% - 100px);
-  background-color: #2F3E51;
+  background-color: $leftContentColor;
   padding: 0 20px 0 20px;
 
   .conversation{

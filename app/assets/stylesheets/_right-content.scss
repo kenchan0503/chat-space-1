@@ -1,13 +1,13 @@
 $mainBlueColor: #38aef0;
 $mainWhiteColor: #FFFFFF;
-// 一度しか使わない色はわかりづらくなるのでIDのままにしておきます。
+$bodyColor: #fafafa;
 
 .right-content{
   float: left;
   position: relative;
   width: calc(100% - 300px);
   height: 100%;
-  background-color: #fafafa;
+  background-color: $bodyColor;
 
   &__top{
     height: 100px;
