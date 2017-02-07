@@ -1,0 +1,69 @@
+$mainWhiteColor: #FFFFFF;
+$leftContentColor: #2F3E51;
+$leftContentTopColor: #253141;
+
+.left-content{
+  float: left;
+  width: 300px;
+  height: 100%;
+  background-color: $leftContentColor;
+
+  .left-content-top {
+     padding: 0 20px 20px 20px;
+     height: 80px;
+     width: 260px;
+     background-color: $leftContentTopColor;
+     float: left;
+
+      &__your-name {
+        line-height: 100px;
+        float: left;
+        font-size: 16px;
+        font-weight: bold;
+        color: $mainWhiteColor;
+      }
+
+      &__actions{
+        line-height: 100px;
+        float: right;
+        color: $mainWhiteColor;
+        font-size: 20px;
+        }
+
+      &__action{
+        color: $mainWhiteColor;
+        display: inline-block;
+      }
+  }
+}
+
+.left-content-bottom {
+  float: left;
+  width: 260px;
+  height: calc(100% - 100px);
+  background-color: $leftContentColor;
+  padding: 0 20px 0 20px;
+
+  .conversation{
+    padding-top: 20px;
+
+    &__group{
+      padding-bottom: 40px;
+      color: $mainWhiteColor;
+
+      &__link{
+        color: $mainWhiteColor;
+        text-decoration: none;
+      }
+      &__name {
+        font-size: 15px;
+      }
+      &__newest-message {
+        padding-top: 5px;
+        font-size: 11px;
+      }
+    }
+
+  }
+}
+

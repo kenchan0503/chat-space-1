@@ -1,0 +1,13 @@
+.notice{
+  background-color: #38aef0;
+  color: #fff;
+  text-align: center;
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+.clearfix:after {
+  content: "";
+  clear: both;
+  display: block;
+}

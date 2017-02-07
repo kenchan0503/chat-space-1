@@ -1,0 +1,133 @@
+$mainBlueColor: #38aef0;
+$mainWhiteColor: #FFFFFF;
+$bodyColor: #fafafa;
+
+.right-content{
+  float: left;
+  position: relative;
+  width: calc(100% - 300px);
+  height: 100%;
+  background-color: $bodyColor;
+
+  &__top{
+    height: 100px;
+    padding: 0 40px 0;
+    background-color: $mainWhiteColor;
+
+    .group-name{
+      float:left;
+      font-size: 20px;
+      color: #333333;
+      padding-top: 30px;
+    }
+
+    .group-members{
+      font-size: 12px;
+      color: #999999;
+      padding-top: 15px;
+      clear: left;
+    }
+
+    .right-content__edit{
+      float: right;
+      height: 100px;
+
+    .edit-link{
+      text-decoration: none;
+
+      .edit-button {
+        margin: 28px 0;
+        padding-right: 20px;
+        padding-left: 20px;
+        line-height: 40px;
+        color: $mainBlueColor;
+        font-size: 14px;
+        border: 2px solid;
+      }
+    }
+    }
+  }
+  &__middle{
+    border-top: #eeeeee;
+    padding: 0 40px 0;
+    height: calc(100% - 200px);
+    position:relative;
+    overflow-y: scroll;
+
+    .message{
+      padding-top: 46px;
+
+      &__contents{
+
+        &__sender{
+          float: left;
+          font-size: 16px;
+          font-weight: bold;
+          color: #434A54;
+        }
+
+        &__time{
+          float: left;
+          font-size: 12px;
+          color: #999999;
+          padding-left: 10px;
+        }
+
+        &__content{
+          clear: left;
+          padding: 10px 0 40px;
+          font-size: 14px;
+          color: #434A54;
+        }
+      }
+    }
+  }
+  &__footer{
+    position: absolute;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 20px 40px;
+    height: 60px;
+    background-color: #ddd;
+
+    &__body{
+      position: relative;
+      float: left;
+      width: calc(100% - 125px);
+      height: 50px;
+
+      .text{
+        height: 50px;
+        width: 100%;
+        border: none;
+        padding-left: 10px;
+      }
+
+      &__image{
+        position: absolute;
+        top: 0;
+        right: 0px;
+        height: 50px;
+        line-height: 50px;
+        cursor: pointer;
+
+        .set_image{
+          display: none;
+        }
+      }
+    }
+
+    input.send{
+      display: block;
+      float: left;
+      width: 100px;
+      height: 50px;
+      text-align: center;
+      margin-left: 25px;
+      background-color: $mainBlueColor;
+      border: none;
+      color: $mainWhiteColor;
+    }
+  }
+}
