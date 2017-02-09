@@ -42,6 +42,7 @@ $leftContentTopColor: #253141;
   width: 300px;
   height: calc(100% - 100px);
   background-color: $leftContentColor;
+  overflow-y: scroll;
 
   .conversation{
 

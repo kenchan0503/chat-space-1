@@ -3,7 +3,8 @@
 .wrapper
   .left-content
     .left-content-top
-      %p.left-content-top__your-name shinichi shimizu
+      %p.left-content-top__your-name
+        =current_user.nickname
       .left-content-top__actions.clearfix
         =link_to new_group_path,class: "left-content-top__action" do
           = fa_icon "pencil-square-o"
@@ -12,19 +13,14 @@
 
     .left-content-bottom
       %ul.conversation
-        %li.conversation__group
-          =link_to "#",class: "conversation__group__link" do
-            %p.conversation__group__name グループ1
-            %p.conversation__group__newest-message お腹すいた
-        %li.conversation__group
-          =link_to "#",class: "conversation__group__link" do
-            %p.conversation__group__name aaaaaaaaaaaaa
-            %p.conversation__group__newest-message まだメッセージはありません
-        %li.conversation__group
-          =link_to "#",class: "conversation__group__link" do
-            %p.conversation__group__name sampleグループ
-            %p.conversation__group__newest-message まだメッセージはありません
-    -# TODO:each文実装時にliは一個に訂正。
+        -@groups.each do |group|
+          %li.conversation__group
+            =link_to "#",class: "conversation__group__link" do
+              %p.conversation__group__name
+                =group.name
+              %p.conversation__group__newest-message
+                メッセージ投稿機能と一緒に実装。
+                -# =group.messages.body.last(1)
 
   .right-content.clearfix
 
