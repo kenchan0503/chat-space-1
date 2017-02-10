@@ -1,0 +1,91 @@
+.wrapper
+  .left-content
+    .left-content-top
+      %p.left-content-top__your-name
+        =current_user.nickname
+      .left-content-top__actions.clearfix
+        =link_to new_group_path,class: "left-content-top__action" do
+          = fa_icon "pencil-square-o"
+        =link_to edit_user_registration_path,class: "left-content-top__action" do
+          = fa_icon "cog"
+
+    .left-content-bottom
+      %ul.conversation
+        -@groups.each do |group|
+          %li.conversation__group
+            =link_to "/groups/#{group.id}/messages",class: "conversation__group__link" do
+              %p.conversation__group__name
+                =group.name
+              %p.conversation__group__newest-message
+                メッセージ投稿機能と一緒に実装。
+                -# =group.messages.body.last(1)
+
+  -# .right-content.clearfix
+
+  -#   .right-content__top.clearfix
+  -#     %p.group-name.clearfix sampleグループ
+  -#     .right-content__edit
+  -#       =link_to "#",class: "edit-link" do
+  -#         %p.edit-button Edit
+  -#     %p.group-members.clearfix Members: ryosukemaehira satoh suzuki tanaka shimizu
+
+  -#   .right-content__middle
+  -#     %ul.message
+  -#       -# -@messages.each do |message|
+  -#       -#   %li.message__contents.clearfix
+  -#       -#     %p.message__contents__sender message.user.nickname
+  -#       -#     %p.message__contents__time  message.created_at
+  -#       -#     %p.message__contents__content message.body
+  -#       %li.message__contents.clearfix
+  -#         %p.message__contents__sender ダミー
+  -#         %p.message__contents__time 2016/10/02 06:27:14
+  -#         %p.message__contents__content あああああああああああ
+  -#       %li.message__contents.clearfix
+  -#         %p.message__contents__sender ryosukemaehira
+  -#         %p.message__contents__time 2016/10/02 06:27:25
+  -#         %p.message__contents__content コマンド+エンターで送信したい感ある
+  -#       %li.message__contents.clearfix
+  -#         %p.message__contents__sender ryosukemaehira
+  -#         %p.message__contents__time 2016/10/02 06:27:30
+  -#         %p.message__contents__content お腹すいた
+  -#       %li.message__contents.clearfix
+  -#         %p.message__contents__sender ryosukemaehira
+  -#         %p.message__contents__time 2016/10/02 06:27:07
+  -#         %p.message__contents__content なるほど
+  -#       %li.message__contents.clearfix
+  -#         %p.message__contents__sender ダミー
+  -#         %p.message__contents__time 2016/10/02 06:27:14
+  -#         %p.message__contents__content あああああああああああ
+  -#       %li.message__contents.clearfix
+  -#         %p.message__contents__sender ryosukemaehira
+  -#         %p.message__contents__time 2016/10/02 06:27:25
+  -#         %p.message__contents__content コマンド+エンターで送信したい感ある
+  -#       %li.message__contents.clearfix
+  -#         %p.message__contents__sender ryosukemaehira
+  -#         %p.message__contents__time 2016/10/02 06:27:30
+  -#         %p.message__contents__content お腹すいた
+  -#       %li.message__contents.clearfix
+  -#         %p.message__contents__sender ryosukemaehira
+  -#         %p.message__contents__time 2016/10/02 06:27:07
+  -#         %p.message__contents__content なるほど
+  -#       %li.message__contents.clearfix
+  -#         %p.message__contents__sender ダミー
+  -#         %p.message__contents__time 2016/10/02 06:27:14
+  -#         %p.message__contents__content あああああああああああ
+  -#       %li.message__contents.clearfix
+  -#         %p.message__contents__sender ryosukemaehira
+  -#         %p.message__contents__time 2016/10/02 06:27:25
+  -#         %p.message__contents__content コマンド+エンターで送信したい感ある
+  -#       %li.message__contents.clearfix
+  -#         %p.message__contents__sender ryosukemaehira
+  -#         %p.message__contents__time 2016/10/02 06:27:30
+  -#         %p.message__contents__content お腹すいた
+
+  -#   .right-content__footer.clearfix
+  -#     %form
+  -#       .right-content__footer__body
+  -#         %input.text{:type=>"text",:placeholder=>"type a message"}
+  -#           %label.right-content__footer__body__image
+  -#             %input.set_image{:type=>"file"}
+  -#             = fa_icon "image"
+  -#       %input.send{:type=>"submit",:value=>"Send"}
