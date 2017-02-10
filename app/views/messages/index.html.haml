@@ -1,9 +1,8 @@
--# %p.notice チャットグループが作成されました。
-  -# コントローラー内でflashオブジェクトを設定すると使えそうなので、グループ機能実装時にnoticeも実装。
 .wrapper
   .left-content
     .left-content-top
-      %p.left-content-top__your-name shinichi shimizu
+      %p.left-content-top__your-name
+        =current_user.nickname
       .left-content-top__actions.clearfix
         =link_to new_group_path,class: "left-content-top__action" do
           = fa_icon "pencil-square-o"
@@ -12,79 +11,26 @@
 
     .left-content-bottom
       %ul.conversation
-        %li.conversation__group
-          =link_to "#",class: "conversation__group__link" do
-            %p.conversation__group__name グループ1
-            %p.conversation__group__newest-message お腹すいた
-        %li.conversation__group
-          =link_to "#",class: "conversation__group__link" do
-            %p.conversation__group__name aaaaaaaaaaaaa
-            %p.conversation__group__newest-message まだメッセージはありません
-        %li.conversation__group
-          =link_to "#",class: "conversation__group__link" do
-            %p.conversation__group__name sampleグループ
-            %p.conversation__group__newest-message まだメッセージはありません
-    -# TODO:each文実装時にliは一個に訂正。
+        = render partial: 'partials/sidebar', collection: @groups
 
   .right-content.clearfix
 
     .right-content__top.clearfix
-      %p.group-name.clearfix sampleグループ
+      %p.group-name.clearfix
+        =@group.name
       .right-content__edit
         =link_to "#",class: "edit-link" do
           %p.edit-button Edit
-      %p.group-members.clearfix Members: ryosukemaehira satoh suzuki tanaka shimizu
+      %ul.group-members.clearfix
+        %li.group-members__members Members:
+        -@users.each do |user|
+          %li.group-members__names
+            =user.nickname
+
 
     .right-content__middle
       %ul.message
-        %li.message__contents.clearfix
-          %p.message__contents__sender ryosukemaehira
-          %p.message__contents__time 2016/10/02 06:27:07
-          %p.message__contents__content なるほど
-        %li.message__contents.clearfix
-          %p.message__contents__sender ダミー
-          %p.message__contents__time 2016/10/02 06:27:14
-          %p.message__contents__content あああああああああああ
-        %li.message__contents.clearfix
-          %p.message__contents__sender ryosukemaehira
-          %p.message__contents__time 2016/10/02 06:27:25
-          %p.message__contents__content コマンド+エンターで送信したい感ある
-        %li.message__contents.clearfix
-          %p.message__contents__sender ryosukemaehira
-          %p.message__contents__time 2016/10/02 06:27:30
-          %p.message__contents__content お腹すいた
-        %li.message__contents.clearfix
-          %p.message__contents__sender ryosukemaehira
-          %p.message__contents__time 2016/10/02 06:27:07
-          %p.message__contents__content なるほど
-        %li.message__contents.clearfix
-          %p.message__contents__sender ダミー
-          %p.message__contents__time 2016/10/02 06:27:14
-          %p.message__contents__content あああああああああああ
-        %li.message__contents.clearfix
-          %p.message__contents__sender ryosukemaehira
-          %p.message__contents__time 2016/10/02 06:27:25
-          %p.message__contents__content コマンド+エンターで送信したい感ある
-        %li.message__contents.clearfix
-          %p.message__contents__sender ryosukemaehira
-          %p.message__contents__time 2016/10/02 06:27:30
-          %p.message__contents__content お腹すいた
-        %li.message__contents.clearfix
-          %p.message__contents__sender ryosukemaehira
-          %p.message__contents__time 2016/10/02 06:27:07
-          %p.message__contents__content なるほど
-        %li.message__contents.clearfix
-          %p.message__contents__sender ダミー
-          %p.message__contents__time 2016/10/02 06:27:14
-          %p.message__contents__content あああああああああああ
-        %li.message__contents.clearfix
-          %p.message__contents__sender ryosukemaehira
-          %p.message__contents__time 2016/10/02 06:27:25
-          %p.message__contents__content コマンド+エンターで送信したい感ある
-        %li.message__contents.clearfix
-          %p.message__contents__sender ryosukemaehira
-          %p.message__contents__time 2016/10/02 06:27:30
-          %p.message__contents__content お腹すいた
+        = render partial: 'partials/chatview', collection: @messages
 
     .right-content__footer.clearfix
       %form

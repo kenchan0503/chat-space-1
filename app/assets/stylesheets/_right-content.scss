@@ -26,6 +26,16 @@ $bodyColor: #fafafa;
       color: #999999;
       padding-top: 15px;
       clear: left;
+
+      &__members{
+        float: left;
+      }
+
+      &__names{
+        float: left;
+        padding-left: 10px;
+      }
+
     }
 
     .right-content__edit{

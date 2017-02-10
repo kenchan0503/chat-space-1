@@ -39,16 +39,15 @@ $leftContentTopColor: #253141;
 
 .left-content-bottom {
   float: left;
-  width: 260px;
+  width: 300px;
   height: calc(100% - 100px);
   background-color: $leftContentColor;
-  padding: 0 20px 0 20px;
+  overflow-y: scroll;
 
   .conversation{
-    padding-top: 20px;
 
     &__group{
-      padding-bottom: 40px;
+      padding: 20px 0 20px 20px;
       color: $mainWhiteColor;
 
       &__link{
@@ -64,6 +63,9 @@ $leftContentTopColor: #253141;
       }
     }
 
+    &__group:hover {
+      background-color: #384a62;
+    }
+
   }
 }
-
