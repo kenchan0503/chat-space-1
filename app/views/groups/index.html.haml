@@ -9,4 +9,6 @@
         =link_to edit_user_registration_path,class: "left-content-top__action" do
           = fa_icon "cog"
 
-    = render :partial => "partials/sidebar"
+    .left-content-bottom
+      %ul.conversation
+        = render partial: 'partials/sidebar', collection: @groups

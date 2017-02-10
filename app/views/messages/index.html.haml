@@ -9,7 +9,9 @@
         =link_to edit_user_registration_path,class: "left-content-top__action" do
           = fa_icon "cog"
 
-    = render :partial => "partials/sidebar"
+    .left-content-bottom
+      %ul.conversation
+        = render partial: 'partials/sidebar', collection: @groups
 
   .right-content.clearfix
 
@@ -27,7 +29,8 @@
 
 
     .right-content__middle
-      = render :partial => "partials/chatview"
+      %ul.message
+        = render partial: 'partials/chatview', collection: @messages
 
     .right-content__footer.clearfix
       %form
