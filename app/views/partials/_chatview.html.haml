@@ -1,0 +1,9 @@
+%ul.message
+  -@messages.each do |message|
+    %li.message__contents.clearfix
+      %p.message__contents__sender
+        =message.user.nickname
+      %p.message__contents__time
+        =message.created_at
+      %p.message__contents__content
+        =message.body
