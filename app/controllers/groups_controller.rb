@@ -20,6 +20,10 @@ class GroupsController < ApplicationController
     # TODO:グループ名一覧をindexのleft-contentに表示させる。
   end
 
+  def edit
+    
+  end
+
   private
     def group_params
       params.require(:group).permit(:name, user_ids:[])
