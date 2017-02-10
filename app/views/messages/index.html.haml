@@ -19,7 +19,7 @@
       %p.group-name.clearfix
         =@group.name
       .right-content__edit
-        =link_to "#",class: "edit-link" do
+        =link_to "/groups/#{params[:group_id]}/edit",class: "edit-link" do
           %p.edit-button Edit
       %ul.group-members.clearfix
         %li.group-members__members Members:
