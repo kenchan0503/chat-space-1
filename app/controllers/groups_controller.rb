@@ -12,20 +12,20 @@ class GroupsController < ApplicationController
   def create
     @group = Group.new(group_params)
     if @group.save
-      redirect_to "/groups/#{@group.id}/messages/", notice: "グループが作成されました。"
+      redirect_to group_messages_path(@group.id), notice: "グループが作成されました。"
     else
       render :new
     end
   end
 
   def edit
-    @group = Group.find(params[:id])
+    get_chosen_group
   end
 
   def update
-    @group = Group.find(params[:id])
+    get_chosen_group
     if @group.update(group_params)
-      redirect_to "/groups/#{@group.id}/messages/", notice: "グループが更新されました。"
+      redirect_to group_messages_path(@group.id), notice: "グループが更新されました。"
     else
       render :edit
     end
@@ -33,6 +33,10 @@ class GroupsController < ApplicationController
 
   private
     def group_params
-      params.require(:group).permit(:name, user_ids:[])
+      params.require(:group).permit(:name, user_ids: [])
+    end
+
+    def get_chosen_group
+      @group = Group.find(params[:id])
     end
 end
