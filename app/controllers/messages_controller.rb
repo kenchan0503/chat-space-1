@@ -1,5 +1,5 @@
 class MessagesController < ApplicationController
-  before_action :set_view_instance_variables, only: [:index, :create]
+  before_action :set_view_instance_variables, only: %i(index create)
 
   def index
     @message = Message.new
