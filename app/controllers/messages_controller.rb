@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
     if @message.save
       redirect_to group_messages_path(params[:group_id])
     else
-      render :index
+      redirect_to group_messages_path(params[:group_id]), alert: "何かメッセージを入力してください。"
     end
   end
 
@@ -26,5 +26,4 @@ class MessagesController < ApplicationController
     def message_params
       params.require(:message).permit(:body).merge(group_id: params[:group_id], user_id: current_user.id)
     end
-
 end
