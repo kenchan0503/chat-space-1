@@ -1,6 +1,9 @@
 %li.conversation__group
-  =link_to "/groups/#{sidebar.id}/messages",class: "conversation__group__link" do
+  = link_to group_messages_path(sidebar.id),class: "conversation__group__link" do
     %p.conversation__group__name
-      =sidebar.name
+      = sidebar.name
     %p.conversation__group__newest-message
-      メッセージ投稿機能と一緒に実装。
+      - if sidebar.messages.last().present?
+        = sidebar.messages.last().body
+      - else
+        まだメッセージはありません。

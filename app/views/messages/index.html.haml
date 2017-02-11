@@ -2,11 +2,11 @@
   .left-content
     .left-content-top
       %p.left-content-top__your-name
-        =current_user.nickname
+        = current_user.nickname
       .left-content-top__actions.clearfix
-        =link_to new_group_path,class: "left-content-top__action" do
+        = link_to new_group_path,class: "left-content-top__action" do
           = fa_icon "pencil-square-o"
-        =link_to edit_user_registration_path,class: "left-content-top__action" do
+        = link_to edit_user_registration_path,class: "left-content-top__action" do
           = fa_icon "cog"
 
     .left-content-bottom
@@ -17,26 +17,26 @@
 
     .right-content__top.clearfix
       %p.group-name.clearfix
-        =@group.name
+        = @group.name
       .right-content__edit
-        =link_to "/groups/#{params[:group_id]}/edit",class: "edit-link" do
+        = link_to edit_group_path(@group.id),class: "edit-link" do
           %p.edit-button Edit
       %ul.group-members.clearfix
         %li.group-members__members Members:
-        -@users.each do |user|
+        - @users.each do |user|
           %li.group-members__names
-            =user.nickname
+            = user.nickname
 
 
     .right-content__middle
       %ul.message
-        = render partial: 'partials/chatview', collection: @messages
+        = render partial: 'partials/message', collection: @messages
 
     .right-content__footer.clearfix
-      %form
+      = form_for [@group, @message] do |f|
         .right-content__footer__body
-          %input.text{:type=>"text",:placeholder=>"type a message"}
-            %label.right-content__footer__body__image
-              %input.set_image{:type=>"file"}
-              = fa_icon "image"
-        %input.send{:type=>"submit",:value=>"Send"}
+          = f.text_field :body, class: "text", placeholder: "type a message"
+          %label.right-content__footer__body__image
+            = f.file_field :image, class: "set_image"
+            = fa_icon "image"
+        = f.submit "Send", class: "send"
