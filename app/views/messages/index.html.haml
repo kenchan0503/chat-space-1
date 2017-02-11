@@ -33,10 +33,10 @@
         = render partial: 'partials/chatview', collection: @messages
 
     .right-content__footer.clearfix
-      %form
+      = form_for [@group, @message] do |f|
         .right-content__footer__body
-          %input.text{:type=>"text",:placeholder=>"type a message"}
-            %label.right-content__footer__body__image
-              %input.set_image{:type=>"file"}
-              = fa_icon "image"
-        %input.send{:type=>"submit",:value=>"Send"}
+          = f.text_field :body, class: "text", placeholder: "type a message"
+          %label.right-content__footer__body__image
+            = f.file_field :image, class: "set_image"
+            = fa_icon "image"
+        = f.submit "Send", class: "send"
