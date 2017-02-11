@@ -30,7 +30,7 @@
 
     .right-content__middle
       %ul.message
-        = render partial: 'partials/chatview', collection: @messages
+        = render partial: 'partials/message', collection: @messages
 
     .right-content__footer.clearfix
       = form_for [@group, @message] do |f|
