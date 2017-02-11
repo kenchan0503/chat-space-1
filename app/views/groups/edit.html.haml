@@ -1,14 +1,15 @@
 .chat-group-form
   %h1 チャットグループ編集
   = form_for @group, class: "edit_chat_group", id:"edit_chat_group" do |f|
-    -if @group.errors.any?
+    - if @group.errors.any?
       #error_explanation.alert.alert-danger
         %h2
-          =@group.errors.count
+          = @group.errors.count
           点のエラーが発生しております
         %ul
         - @group.errors.full_messages.each do |message|
-          %li= message
+          %li
+            = message
     .chat-group-form__field.clearfix
       .chat-group-form__field--left
         = f.label "グループ名" , class: "chat-group-form__label", for: "chat_group_name"

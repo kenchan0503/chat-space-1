@@ -4,7 +4,7 @@
     -if @group.errors.any?
       #error_explanation.alert.alert-danger
         %h2
-          =@group.errors.count
+          = @group.errors.count
           点のエラーが発生しております
         %ul
         - @group.errors.full_messages.each do |message|
