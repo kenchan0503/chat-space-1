@@ -3,4 +3,7 @@
     %p.conversation__group__name
       = sidebar.name
     %p.conversation__group__newest-message
-      メッセージ投稿機能と一緒に実装。
+      - if sidebar.messages.last().present?
+        = sidebar.messages.last().body
+      - else
+        まだメッセージはありません。
