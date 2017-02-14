@@ -1,6 +1,5 @@
 require 'rails_helper'
 
-
 describe Message do
   describe '#create' do
     it "is valid with a body, image" do
@@ -9,14 +8,14 @@ describe Message do
     end
 
     it "is valid with a body, even if without a image" do
-      message = build(:message, image:"")
+      message = build(:message, image: "")
       expect(message).to be_valid
     end
 
     it "is invalid without body" do
-      message = build(:message, body:"")
+      message = build(:message, body: "")
       message.valid?
-      expect(message.errors[:body]).to include("translation missing: ja.activerecord.errors.models.message.attributes.body.blank")
+      expect(message.errors[:body]).to include("を入力してください")
     end
 
   end
