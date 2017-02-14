@@ -1,8 +1,8 @@
 FactoryGirl.define do
 
   factory :message do
-    body    "a"
-    image   "aaa.png"
+    body    { Faker::Lorem.sentence }
+    image   { Faker::Avatar.image }
   end
 
 end
