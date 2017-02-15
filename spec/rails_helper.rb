@@ -55,6 +55,5 @@ RSpec.configure do |config|
   # コントローラーテスト時のDevise::MissingWardenエラーへの対応。
   config.include Devise::Test::ControllerHelpers, type: :controller
   config.include Devise::Test::ControllerHelpers, type: :view
-  config.include Devise::TestHelpers, :type => :controller
   config.include ControllerMacros, :type => :controller
 end
