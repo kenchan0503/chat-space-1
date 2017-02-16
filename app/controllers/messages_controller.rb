@@ -8,8 +8,10 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      @message = Message.new
-      render :index
+      respond_to do |format|
+        format.html { redierct_to :root }
+        format.json { render json: @todo}
+      end
     else
       flash.now[:alert] = "何かメッセージを入力してください。"
       render :index
