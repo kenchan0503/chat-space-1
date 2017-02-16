@@ -9,8 +9,12 @@ class MessagesController < ApplicationController
     @message = Message.new(message_params)
     if @message.save
       respond_to do |format|
-        format.html { redierct_to :root }
-        format.json { render json: @todo}
+        format.html {
+          redirect_to group_messages_path(params[:group_id])
+        }
+        format.json {
+          render json: @message
+        }
       end
     else
       flash.now[:alert] = "何かメッセージを入力してください。"
