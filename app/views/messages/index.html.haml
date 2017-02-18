@@ -33,7 +33,7 @@
         = render partial: 'partials/message', collection: @messages
 
     .right-content__footer.clearfix
-      = form_for [@group, @message] do |f|
+      = form_for [@group, @message], html:{ id: "new_message"} do |f|
         .right-content__footer__body
           = f.text_field :body, class: "text", placeholder: "type a message"
           %label.right-content__footer__body__image

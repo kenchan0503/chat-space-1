@@ -13,7 +13,11 @@ class MessagesController < ApplicationController
           redirect_to group_messages_path(params[:group_id])
         }
         format.json {
-          render json: @message
+          render json: {
+            nickname: @message.user.nickname,
+            created_at: @message.created_at.strftime("%Y/%m/%d %H:%M:%S"),
+            body: @message.body
+          }
         }
       end
     else
