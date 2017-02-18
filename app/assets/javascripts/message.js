@@ -2,10 +2,9 @@ $(function() {
   function buildHTML(message) {
     //データを受け取って、ulの中身を作って返す。
     var html = '<li class = "message__contents">'
-    + '<p class = "message__contents__sender" >' + message.nickname
-    + '<p class = "message__contents__time" >' + message.created_at
+    + '<p class = "message__contents__sender" >'  + message.nickname
+    + '<p class = "message__contents__time" >'    + message.created_at
     + '<p class = "message__contents__content" >' + message.body;
-    console.log(html) //画像投稿機能実装完了後、消します。
     return html;
   }
 
@@ -15,11 +14,10 @@ $(function() {
   }
 
   $('#new_message').on('submit', function(e) {
-    console.log("ちゃんと動いている") //画像投稿機能実装完了時、消します。
     e.preventDefault();
-    var textField = $('.text');
+    var textField     = $('.text');
     var content_input = textField.val();
-    var request_url = $("#new_message").attr("action");
+    var request_url   = $("#new_message").attr("action");
 
     $.ajax({
       type: 'POST',
