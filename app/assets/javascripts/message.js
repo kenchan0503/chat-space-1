@@ -15,7 +15,6 @@ $(document).on('turbolinks:load', function() {
 
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
-    console.log("ちゃんとjs動いてる");
     var textField     = $('.text');
     var content_input = textField.val();
     var request_url   = $("#new_message").attr("action");
