@@ -8,8 +8,14 @@ class MessagesController < ApplicationController
   def create
     @message = Message.new(message_params)
     if @message.save
-      @message = Message.new
-      render :index
+      respond_to do |format|
+        format.html {
+          redirect_to group_messages_path(params[:group_id])
+        }
+        format.json {
+          render json: Message.set_json_values(@message)
+        }
+      end
     else
       flash.now[:alert] = "何かメッセージを入力してください。"
       render :index
@@ -23,11 +29,11 @@ class MessagesController < ApplicationController
 
     def set_view_instance_variables
       #サイドバー表示用
-      @groups = current_user.groups
+      @groups   = current_user.groups
 
       #メイン画面表示用
-      @group = Group.find(params[:group_id])
+      @group    = Group.find(params[:group_id])
       @messages = @group.messages
-      @users = @group.users
+      @users    = @group.users
     end
 end
