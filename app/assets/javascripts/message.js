@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   function buildHTML(message) {
     //データを受け取って、ulの中身を作って返す。
     var html = '<li class = "message__contents">'
@@ -15,6 +15,7 @@ $(function() {
 
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
+    console.log("ちゃんとjs動いてる");
     var textField     = $('.text');
     var content_input = textField.val();
     var request_url   = $("#new_message").attr("action");
