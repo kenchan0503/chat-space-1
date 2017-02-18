@@ -1,4 +1,4 @@
-$(function() {
+$(document).on('turbolinks:load', function() {
   function buildHTML(message) {
     //データを受け取って、ulの中身を作って返す。
     var html = '<li class = "message__contents">'
