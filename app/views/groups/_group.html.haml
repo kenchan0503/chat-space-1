@@ -1,0 +1,43 @@
+= form_for @group, class: "new_chat_group", id:"new_chat_group" do |f|
+  -if @group.errors.any?
+    #error_explanation.alert.alert-danger
+      %h2
+        = @group.errors.count
+        点のエラーが発生しております
+      %ul
+      - @group.errors.full_messages.each do |message|
+        %li= message
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label "グループ名" , class: "chat-group-form__label", for: "chat_group_name"
+    .chat-group-form__field--right
+      = f.text_field :name, id: "chat_group_name", class: "chat-group-form__input", placeholder: "グループ名を入力してください"
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      = f.label "チャットメンバーを追加", class: "chat-group-form__label", for: "user-search-field"
+    .chat-group-form__field--right
+      .chat-group-form__search.clearfix
+        %input#user-search-field.chat-group-form__input{placeholder: "追加したいユーザー名を入力してください", type: "text", autocomplete: "off"}
+      %ul#user-search-result
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+      %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバー
+    .chat-group-form__field--right
+      %ul#chat-group-members
+        %li.chat-group-member.clearfix
+          %p.chat-group-member__name
+            = current_user.nickname
+        - if @member.nil?
+          = render partial: 'user', collection: @members
+      %input{type: "hidden", name: "group[user_ids][]", value: current_user.id}
+
+  .chat-group-form__field.clearfix
+    .chat-group-form__field--left
+    .chat-group-form__field--right
+      = f.submit "Save",data: { disable_with: "送信中..." }, class: "chat-group-form__action-btn"
+
+= javascript_tag do
+  users = #{raw @users.to_json};

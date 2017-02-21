@@ -21,6 +21,8 @@ class GroupsController < ApplicationController
 
   def edit
     get_chosen_group
+    @users = User.where.not(id: current_user.id)
+    @members = @group.users.where.not(id: current_user.id)
   end
 
   def update
