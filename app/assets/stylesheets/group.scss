@@ -71,6 +71,7 @@
     }
   }
 
+//インクリメントサーチの結果を表示する
   .chat-group-user {
     padding: 0 15px;
     line-height: 50px;
@@ -86,11 +87,29 @@
       display: inline-block;
       cursor: pointer;
 
-      &.chat-group-user__btn--add {
+      .chat-group-user__btn--add {
         color: #38aef0;
       }
+    }
+  }
 
-      &.chat-group-user__btn--remove {
+//追加ボタンを押した結果を表示する。
+  .chat-group-member {
+    padding: 0 15px;
+    line-height: 50px;
+    font-size: 14px;
+    border-bottom: 1px solid #ddd;
+
+    .chat-group-member__name {
+      float: left;
+    }
+
+    .chat-group-member__btn {
+      float: right;
+      display: inline-block;
+      cursor: pointer;
+
+      .chat-group-member__btn--remove {
         color: #f05050;
       }
     }

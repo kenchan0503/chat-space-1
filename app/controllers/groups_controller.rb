@@ -1,4 +1,5 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
 
   def index
     @groups = current_user.groups
@@ -6,7 +7,7 @@ class GroupsController < ApplicationController
 
   def new
     @group = Group.new
-    @users = User.all
+    @users = User.where.not(id: current_user.id)
   end
 
   def create
@@ -20,6 +21,8 @@ class GroupsController < ApplicationController
 
   def edit
     get_chosen_group
+    @users = User.where.not(id: current_user.id)
+    @members = @group.users.where.not(id: current_user.id)
   end
 
   def update
