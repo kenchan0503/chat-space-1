@@ -31,6 +31,27 @@ $(function() {
     $(this).parent().remove();
   });
 
+  //既に選択されているメンバーかどうか判別する処理
+  function discriminant(user_id){
+    elements = document.getElementsByClassName("chat-group-member");
+    $.each(elements, function(i, element) {
+      existingUserId = element.getAttribute("user_id");
+      console.log("existingUserIdは⬇︎")
+      console.log(existingUserId)
+      console.log("user_idは⬇︎")
+      console.log(user_id)
+      if (user_id == 1) { //あとはここの問題さえ解決すればいける。
+        console.log("合致しました");
+        returnValue = "existing";
+        return false;
+      } else {
+        console.log("合致していません")
+        returnValue = "OK"
+      }
+    })
+    return returnValue;
+  }
+
   $(document).on('turbolinks:load', function() {
     console.log("動いている")
     $("#user-search-field").on("keyup", function() {
