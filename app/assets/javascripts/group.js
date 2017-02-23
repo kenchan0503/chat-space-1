@@ -57,10 +57,8 @@ $(function() {
         $(".chat-group-user").remove();
         $.each(users, function(i, user) {
           if (user.nickname.match(reg)) {
-            if (discriminant(user.id) == "existing") {
-              //既存ユーザーだった場合は何も行わない。
-            } else {
-              appendList(user.id, user.nickname)
+            if (discriminant(user.id) != "existing") {
+              appendList(user.id, user.nickname);
             }
           }
         })
