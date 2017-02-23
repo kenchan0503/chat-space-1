@@ -64,7 +64,15 @@ $(function() {
         $(".chat-group-user").remove();
         $.each(users, function(i, user) {
           if (user.nickname.match(reg)) {
-            appendList(user.id, user.nickname)
+            if (discriminant(user.id) == "existing") {
+            console.log("かぶってるよ")
+            // console.log(discriminant(user.id))
+            } else {
+            console.log("かぶってないよ︎")
+            // console.log("discriminantの結果⬇︎")
+            // console.log(discriminant(user.id))
+              appendList(user.id, user.nickname)
+            }
           }
         })
       }
