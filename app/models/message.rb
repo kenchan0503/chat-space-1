@@ -4,6 +4,8 @@ class Message < ApplicationRecord
 
   validates :body, presence: true
 
+  mount_uploader :image, ImageUploader
+
   def self.set_json_values(message)
     {
       nickname: message.user.nickname,
