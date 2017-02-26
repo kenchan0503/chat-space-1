@@ -10,7 +10,8 @@ class Message < ApplicationRecord
     {
       nickname: message.user.nickname,
       created_at: message.created_at.to_s(:created_at),
-      body: message.body
+      body: message.body,
+      image: message.image.url
     }
   end
 end

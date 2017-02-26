@@ -17,30 +17,16 @@ $(document).on('turbolinks:load', function() {
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var textField     = $('.text');
-    var content_input = textField.val();
-    var fileField = $(".set_image");
-    var image_input = fileField.val();
-    // var form = $(this).get(0);
-    // console.log("form");
-    // console.log(form);
-    var formData = new FormData($("#new_message")[0])
-    console.log("formdata");
-    console.log(formData);
+    var fd = new FormData($(this).get(0));
     var request_url   = $("#new_message").attr("action");
 
     $.ajax({
       type: 'POST',
       url: request_url,
-      data: new FormData($("#new_message")[0]),
-      // data: {
-      //   message: {
-      //     body: content_input,
-      //     image: image_input
-      //   }
-      // },
-      // dataType: 'json',
+      data: fd,
       processData: false,
-      contentType: false
+      contentType: false,
+      dataType: 'json'
     })
     .done(function(data) {
       var html = buildHTML(data);
