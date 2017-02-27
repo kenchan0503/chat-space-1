@@ -3,7 +3,9 @@
     = message.user.nickname
   %p.message__contents__time
     = message.created_at
-  %p.message__contents__content
-    = message.body
-  %p.message__contents__content
-    = image_tag message.image
+  - if message.image.present?
+    %p.message__contents__content
+      = image_tag message.image
+  - else
+    %p.message__contents__content
+      = message.body

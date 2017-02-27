@@ -37,6 +37,6 @@
         .right-content__footer__body
           = f.text_field :body, class: "text", placeholder: "type a message"
           %label.right-content__footer__body__image
-            = f.file_field :image, class: "set_image"
+            = f.file_field :image, class: "set_image", onchange: "$(this).submit();"
             = fa_icon "image"
         = f.submit "Send", class: "send"

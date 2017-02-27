@@ -2,9 +2,10 @@ class Message < ApplicationRecord
   belongs_to :user
   belongs_to :group
 
-  validates :body, presence: true
-
   mount_uploader :image, ImageUploader
+
+  validates :body, presence: true,
+    if: :image, presence: false
 
   def self.set_json_values(message)
     {
