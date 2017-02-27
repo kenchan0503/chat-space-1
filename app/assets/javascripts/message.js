@@ -4,7 +4,7 @@ $(document).on('turbolinks:load', function() {
     var liTag = '<li class = "message__contents">'
     var nicknameTag = '<p class = "message__contents__sender" >'  + message.nickname
     var timeTag = '<p class = "message__contents__time" >'    + message.created_at
-     if (message.image) {
+    if (message.image) {
     var bodyTag = '<p class = "message__contents__content" >' + '<img src=' + message.image + '>';
     } else {
     var bodyTag = '<p class = "message__contents__content" >' + message.body;

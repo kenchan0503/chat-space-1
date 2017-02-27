@@ -4,8 +4,7 @@ class Message < ApplicationRecord
 
   mount_uploader :image, ImageUploader
 
-  validates :body, presence: true,
-    if: :image, presence: false
+  validates :body_or_image, presence: true
 
   def self.set_json_values(message)
     {
@@ -15,4 +14,9 @@ class Message < ApplicationRecord
       image: message.image.url
     }
   end
+
+  private
+    def body_or_image
+      body.presence or image.presence
+    end
 end
