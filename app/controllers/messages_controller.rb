@@ -3,6 +3,18 @@ class MessagesController < ApplicationController
 
   def index
     @message = Message.new
+    respond_to do |format|
+      format.html {
+        render :index
+      }
+      format.json {
+        messages = []
+        @messages.each do |message|
+          messages << Message.set_json_values(message)
+        end
+        render json: { messages: messages }
+      }
+    end
   end
 
   def create

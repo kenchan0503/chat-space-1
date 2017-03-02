@@ -18,6 +18,35 @@ $(document).on('turbolinks:load', function() {
     $('.right-content__middle').animate({scrollTop: $('.right-content__middle')[0].scrollHeight}, 'fast');
   }
 
+    //自動更新の処理
+  var uploadTime = 5000; //5秒ごとに更新
+  setInterval(automaticUpdating, uploadTime);
+
+  function automaticUpdating() {
+    var current_url = document.location.pathname;
+    if (current_url.match(/messages/)) {
+      $.ajax({
+        type: 'GET',
+        url: current_url,
+        dataType: 'json'
+      })
+      .done(function(data) {
+        var current_message_number = $('.message__contents').length;
+        if (current_message_number != data.messages.length) {
+          for (var i = current_message_number; i < data.messages.length; i++) {
+            var html = buildHTML(data.messages[i]);
+            $('ul.message').append(html);
+            scroll_chatview();
+          }
+        }
+      })
+      .fail(function() {
+        console.log('error');
+      });
+    }
+  };
+
+  //メッセージが送信された時の処理
   $('#new_message').on('submit', function(e) {
     e.preventDefault();
     var textField     = $('.text');
