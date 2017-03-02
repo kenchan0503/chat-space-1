@@ -11,11 +11,6 @@
 /log/*
 !/log/.keep
 /tmp
-/public/uploads
+/public/uploads/
 
 .env
-
-*.jpg
-*.jpeg
-*.png
-*.gif
